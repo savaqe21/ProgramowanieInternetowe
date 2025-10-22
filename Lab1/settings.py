@@ -11,6 +11,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'witaj',
+    'frontend_demo',
 ]
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

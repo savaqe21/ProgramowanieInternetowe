@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Moja aplikacja Django</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <header>
+      <h1>Witamy w aplikacji Django!</h1>
+      <nav>
+        <a href="#">Strona główna</a>
+        <a href="#">O nas</a>
+        <a href="#">Kontakt</a>
+      </nav>
+    </header>
+    <main>
+      <h2>Podstawy frontendu</h2>
+      <p>To jest przykładowa strona wykorzystująca HTML i CSS w Django.</p>
+      <section class="features">
+        <div class="feature-card">
+          <h3>Responsywność</h3>
+          <p>
+            Strona dostosowuje się do różnych rozmiarów ekranu dzięki media
+            queries.
+          </p>
+        </div>
+        <div class="feature-card">
+          <h3>Eksperymentalne kolory</h3>
+          <p>Wykorzystujemy gradienty i różne palety kolorów.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Czcionki</h3>
+          <p>Profesjonalna typografia dla lepszej czytelności.</p>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <p>&copy; 2025 Autor: Fabian Leśniak</p>
+    </footer>
+  </body>
+</html>
