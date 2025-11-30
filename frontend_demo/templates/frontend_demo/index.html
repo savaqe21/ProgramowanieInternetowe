@@ -3,42 +3,67 @@
 <html lang="pl">
   <head>
     <meta charset="UTF-8" />
-    <title>Moja aplikacja Django</title>
+    <title>Główny Pulpit Aplikacji Django</title>
     <link rel="stylesheet" href="{% static 'style.css' %}" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   </head>
   <body>
     <header>
-      <h1>Witamy w aplikacji Django!</h1>
+      <h1>Pulpit Laboratoriów</h1>
       <nav>
-        <a href="#">Strona główna</a>
-        <a href="#">O nas</a>
-        <a href="#">Kontakt</a>
+        <a href="/">Strona główna</a>
+        <a href="/witaj/">Witaj / Time</a>
+        <a href="/visitcounter/">VisitCounter (JS/Django)</a>
       </nav>
     </header>
     <main>
-      <h2>Podstawy frontendu</h2>
-      <p>To jest przykładowa strona wykorzystująca HTML i CSS w Django.</p>
+      <h2>Zadania z Programowania Internetowego</h2>
+      <p>
+        Poniżej znajdziesz szybki dostęp do wszystkich zaimplementowanych
+        projektów w ramach zajęć.
+      </p>
+
       <section class="features">
         <div class="feature-card">
-          <h3>Responsywność</h3>
+          <h3>Aplikacja "Witaj"</h3>
           <p>
-            Strona dostosowuje się do różnych rozmiarów ekranu dzięki media
-            queries.
+            Widoki bazowe, obsługa dynamicznych URL-i (/hello/TwojeImie) oraz
+            aktualna data/godzina.
+          </p>
+          <p>
+            <a href="/witaj/" class="lab-link">Przejdź do Witaj</a>
           </p>
         </div>
+
         <div class="feature-card">
-          <h3>Eksperymentalne kolory</h3>
-          <p>Wykorzystujemy gradienty i różne palety kolorów.</p>
+          <h3>VisitCounter (Lab 3A)</h3>
+          <p>
+            Demonstracja różnicy między backendem (Django) a frontendem
+            (JavaScript + localStorage).
+          </p>
+          <p>
+            <a href="/visitcounter/" class="lab-link"
+              >Przejdź do VisitCounter</a
+            >
+          </p>
         </div>
-        <div class="feature-card">
-          <h3>Czcionki</h3>
-          <p>Profesjonalna typografia dla lepszej czytelności.</p>
-        </div>
+
+        <!-- <div class="feature-card">
+          <h3>TaskBoard (Lab 3B)</h3>
+          <p>
+            Implementacja interaktywnej aplikacji z dynamicznym odświeżaniem
+            listy zadań za pomocą Django API i Fetch API.
+          </p>
+          <p>
+            <span class="lab-link" style="background-color: gray"
+              >Do zaimplementowania</span
+            >
+          </p>
+        </div> -->
       </section>
     </main>
     <footer>
-      <p>&copy; 2025 Autor: Fabian Leśniak</p>
+      <p>&copy; 2025 Autor: Fabian Leśniak. Powered by Django.</p>
     </footer>
   </body>
 </html>

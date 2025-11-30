@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <title>VisitCounter</title>
+    <style>
+      body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f4f7f9;
+        color: #333;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        margin: 0;
+        text-align: center;
+      }
+
+      .container {
+        background-color: #fff;
+        padding: 30px 50px;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        width: 80%;
+        max-width: 500px;
+      }
+
+      h1 {
+        color: #4a90e2;
+        font-size: 1.5em;
+        margin-bottom: 20px;
+        border-bottom: 2px solid #ddd;
+        padding-bottom: 10px;
+      }
+
+      h2 {
+        font-size: 1.2em;
+        color: #555;
+        margin-top: 25px;
+        margin-bottom: 15px;
+      }
+
+      button {
+        background-color: #5cb85c;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 8px;
+        transition: background-color 0.3s ease;
+      }
+
+      button#reset-btn {
+        background-color: #f0ad4e;
+      }
+
+      button:hover {
+        background-color: #4cae4c;
+      }
+
+      button#reset-btn:hover {
+        background-color: #ec971f;
+      }
+
+      p {
+        font-size: 1.2em;
+        margin-top: 20px;
+      }
+
+      #click-count {
+        font-weight: bold;
+        color: #d9534f;
+        font-size: 1.5em;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Ta strona została odwiedzona {{ visit_count }} razy.</h1>
+    <hr />
+
+    <button id="click-btn">Kliknij mnie!</button>
+    <button id="reset-btn">Resetuj licznik</button>
+    <p>Kliknięcia: <span id="click-count">0</span></p>
+    <script>
+      const STORAGE_KEY = 'clickCountVisitCounter';
+
+      const clickBtn = document.getElementById('click-btn');
+      const resetBtn = document.getElementById('reset-btn');
+      const clickDisplay = document.getElementById('click-count');
+
+      // Wczytywanie localstorage
+      let clickCount = parseInt(localStorage.getItem(STORAGE_KEY)) || 0;
+
+      clickDisplay.textContent = clickCount;
+
+      function updateCount(newCount) {
+        clickCount = newCount;
+        localStorage.setItem(STORAGE_KEY, clickCount);
+        clickDisplay.textContent = clickCount;
+      }
+
+      // Klikanie
+      clickBtn.addEventListener('click', () => {
+        updateCount(clickCount + 1);
+      });
+
+      // Reset
+      resetBtn.addEventListener('click', () => {
+        if (confirm('Czy na pewno chcesz zresetować licznik kliknięć?')) {
+          updateCount(0);
+        }
+      });
+    </script>
+  </body>
+</html>

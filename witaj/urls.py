@@ -3,8 +3,10 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('hello/', views.hello, name='hello'),
-    path('hello/<str:name>/', views.hello_name, name='hello_name'),
-    path('hello_template/<str:name>/', views.hello_template, name='hello_template'),
+    # path('hello/', views.hello, name='hello'),
+    path('hello/', views.hello_user, name='hello_base'), 
+    # path('hello/<str:name>/', views.hello_name, name='hello_name'),
+    path('hello/<str:name>/', views.hello_user, name='hello_name'),
+    # path('hello_template/<str:name>/', views.hello_template, name='hello_template'),
     path('time/', views.current_time, name='current_time'),
 ]

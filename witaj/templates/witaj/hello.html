@@ -1,5 +1,59 @@
 <!DOCTYPE html>
 <html lang="pl">
-<head><meta charset="UTF-8"><title>Witaj w Django</title></head>
-<body><h1>Witaj, {{ name }}!</h1><p>To Twoja pierwsza aplikacja Django.</p></body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Witaj w Django</title>
+    <style>
+      body {
+        font-family: 'Helvetica Neue', Arial, sans-serif;
+        background-color: #e9ecef;
+        color: #343a40;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+        text-align: center;
+      }
+
+      .container {
+        background-color: #ffffff;
+        padding: 40px 60px;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        max-width: 600px;
+        width: 90%;
+        border-top: 5px solid #007bff;
+      }
+
+      h1 {
+        color: #007bff;
+        font-size: 2.2em;
+        margin-bottom: 15px;
+        padding-bottom: 5px;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+      }
+
+      p {
+        font-size: 1.1em;
+        color: #6c757d;
+        line-height: 1.6;
+      }
+
+      .highlight {
+        font-weight: bold;
+        color: #28a745;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="witaj-header">
+        Witaj, <span class="highlight">{{ name }}</span>!
+      </h1>
+      <p>To Twoja pierwsza aplikacja <span class="highlight">Django</span>.</p>
+    </div>
+  </body>
 </html>

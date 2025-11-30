@@ -12,6 +12,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'witaj',
     'frontend_demo',
+    'visitcounter',
 ]
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
