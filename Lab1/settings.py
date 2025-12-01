@@ -13,6 +13,7 @@ INSTALLED_APPS = [
     'witaj',
     'frontend_demo',
     'visitcounter',
+    'todoapi',
 ]
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <title>To-Do API Client</title>
+    <link rel="stylesheet" href="{% static 'todo_style.css' %}" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Mini-API To-Do List Client (Web UI)</h1>
+      <p style="text-align: center">
+        Ten interfejs testuje metody GET, POST, PATCH i DELETE na Twoim API.
+      </p>
+
+      <form id="task-form">
+        <div class="task-input-group">
+          <input
+            type="text"
+            id="task-input"
+            placeholder="Wpisz nowe zadanie (POST)..."
+            required
+          />
+          <button type="submit">Dodaj Zadanie</button>
+        </div>
+      </form>
+
+      <h2>Lista zadań (GET):</h2>
+      <div id="task-list" class="task-list"></div>
+    </div>
+    <script src="{% static 'todo_client.js' %}"></script>
+  </body>
+</html>

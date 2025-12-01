@@ -6,4 +6,5 @@ urlpatterns = [
     path('witaj/', include('witaj.urls')),
     path('', include('frontend_demo.urls')),
     path('visitcounter/', include('visitcounter.urls')),
+    path('api/', include('todoapi.urls')),
 ]

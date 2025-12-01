@@ -1,0 +1,113 @@
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, Roboto,
+    sans-serif;
+  margin: 0;
+  padding: 40px;
+  background-color: #f7f9fc;
+  color: #333;
+}
+.container {
+  max-width: 650px;
+  margin: 50px auto;
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+}
+h1 {
+  color: #007bff;
+  text-align: center;
+  margin-bottom: 25px;
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 15px;
+  font-size: 2.5em;
+  font-weight: 600;
+}
+h2 {
+  color: #495057;
+  margin-top: 35px;
+  font-size: 1.3em;
+  padding-left: 10px;
+  border-left: 5px solid #ffc107;
+  margin-bottom: 20px;
+}
+.task-input-group {
+  display: flex;
+  margin-bottom: 30px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+#task-input {
+  flex-grow: 1;
+  padding: 14px;
+  border: 1px solid #ced4da;
+  border-right: none;
+  font-size: 16px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+#task-input:focus {
+  border-color: #007bff;
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+#task-form button {
+  padding: 14px 30px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s;
+  font-weight: bold;
+  font-size: 1em;
+}
+#task-form button:hover {
+  background-color: #218838;
+  transform: translateY(-1px);
+}
+.task-list {
+  list-style: none;
+  padding: 0;
+}
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  border: 1px solid #f8f9fa;
+  margin-bottom: 10px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+.task-item:last-child {
+  border-bottom: none;
+}
+.task-title {
+  font-size: 1.1em;
+  font-weight: 500;
+  color: #343a40;
+}
+.completed .task-title {
+  text-decoration: line-through;
+  color: #adb5bd;
+}
+.actions button {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: background-color 0.2s;
+  font-size: 0.9em;
+}
+.done-btn {
+  background-color: #007bff;
+}
+.done-btn:hover {
+  background-color: #0056b3;
+}
+.delete-btn:hover {
+  background-color: #c82333;
+}
