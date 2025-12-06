@@ -4,6 +4,7 @@ SECRET_KEY = 'django-insecure-7m8$k^p+x9z@2e!d&f*g_h-j=k#l%m^n&o(p)q[r]s{t}u~v+w
 DEBUG = True
 ALLOWED_HOSTS = [
   'flesniakprogintern.pythonanywhere.com',
+  '127.0.0.1',
 ]
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -16,6 +17,7 @@ INSTALLED_APPS = [
     'frontend_demo',
     'visitcounter',
     'todoapi',
+    'eventplanner',
 ]
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

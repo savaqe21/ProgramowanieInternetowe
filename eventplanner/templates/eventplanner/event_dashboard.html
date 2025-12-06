@@ -1,0 +1,102 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Event Planner - Pulpit</title>
+    <link rel="stylesheet" href="{% static 'event_styles.css' %}" />
+  </head>
+  <body>
+    <div id="app-container">
+      <header>
+        <h1>Planer Imprez Studenckich</h1>
+        <a href="{% url 'create_event' %}" id="create-event-btn"
+          >Utwórz Nowe Wydarzenie</a
+        >
+      </header>
+
+      <main id="event-feed">
+        {% for event in events %}
+        <div class="event-post" id="event-post-{{ event.id }}">
+          <div class="post-header">
+            <h2>{{ event.title }}</h2>
+            <span class="event-date">🗓️ {{ event.date|date:"d M Y" }}</span>
+          </div>
+          <div class="post-body">
+            <p>{{ event.description }}</p>
+          </div>
+
+          <div class="post-actions">
+            <button class="action-btn vote-btn" data-event-id="{{ event.id }}">
+              👍 Głosuj (<span id="votes-{{ event.id }}">{{ event.votes }}</span
+              >)
+            </button>
+
+            <button
+              class="action-btn comment-toggle-btn"
+              data-event-id="{{ event.id }}"
+            >
+              💬 Komentuj
+            </button>
+
+            <button
+              class="action-btn delete-btn"
+              data-event-id="{{ event.id }}"
+            >
+              ❌ Usuń
+            </button>
+
+            <span class="comment-count"
+              >Liczba komentarzy: {{ event.comments.count }}</span
+            >
+          </div>
+
+          <div
+            class="comments-section"
+            id="comments-{{ event.id }}"
+            style="display: none"
+          >
+            <h3>Komentarze:</h3>
+            {% for comment in event.comments.all %}
+            <div class="comment-item">
+              <span class="comment-author"
+                >{{ comment.author|default:"Anonim" }}</span
+              >
+              <p class="comment-content">{{ comment.content }}</p>
+            </div>
+            {% empty %}
+            <p>Brak komentarzy. Bądź pierwszy!</p>
+            {% endfor %}
+
+            <form
+              method="post"
+              action="{% url 'add_comment' event.id %}"
+              class="comment-form"
+            >
+              {% csrf_token %} {% with comment_form=CommentForm %}
+              <input type="hidden" name="event" value="{{ event.id }}" />
+
+              <label for="{{ comment_form.author.id_for_label }}"
+                >Imię / Autor:</label
+              >
+              {{ comment_form.author }}
+
+              <label for="{{ comment_form.content.id_for_label }}"
+                >Treść Komentarza:</label
+              >
+              {{ comment_form.content }}
+
+              <button type="submit">Dodaj Komentarz</button>
+              {% endwith %}
+            </form>
+          </div>
+        </div>
+        {% empty %}
+        <p class="no-events">Brak aktywnych wydarzeń do wyświetlenia.</p>
+        {% endfor %}
+      </main>
+    </div>
+
+    <script src="{% static 'event_logic.js' %}"></script>
+  </body>
+</html>
