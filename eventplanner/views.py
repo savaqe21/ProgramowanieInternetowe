@@ -71,13 +71,8 @@ def event_delete_api(request, event_id):
     """ API Endpoint: Usuwa wydarzenie o podanym ID. """
 
     if request.method == 'DELETE':
-        # Sprawdzamy, czy wydarzenie istnieje i je pobieramy
         event = get_object_or_404(Event, pk=event_id)
-
-        # Usuwamy wydarzenie
         event.delete()
-
-        # Zwracamy status 204 No Content (standard REST dla usunięcia)
         return HttpResponse(status=204)
 
-    return HttpResponse(status=405) # Method Not Allowed
+    return HttpResponse(status=405)
