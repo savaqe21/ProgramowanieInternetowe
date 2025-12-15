@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <title>
+      {% if form.instance.pk %}Edytuj Książkę{% else %}Dodaj Książkę{% endif %}
+    </title>
+    <link rel="stylesheet" href="{% static 'bookhome_styles.css' %}" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="form-container">
+        <h1>
+          {% if form.instance.pk %}✏️ Edytuj Książkę{% else %}➕ Dodaj Nową
+          Książkę{% endif %}
+        </h1>
+
+        <form method="post">
+          {% csrf_token %} {{ form.as_p }}
+
+          <div class="form-actions">
+            <button type="submit" class="save-btn">Zapisz</button>
+            <a href="{% url 'book_list' %}" class="cancel-btn">Anuluj</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

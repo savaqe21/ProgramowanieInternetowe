@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Potwierdź Usunięcie</title>
+    <link rel="stylesheet" href="{% static 'bookhome_styles.css' %}" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="form-container delete-confirm">
+        <h1>❌ Potwierdź Usunięcie</h1>
+        <p>Czy na pewno chcesz usunąć książkę:</p>
+        <p class="book-title-confirm">
+          "{{ object.title }}" (Autor: {{ object.author }})?
+        </p>
+
+        <form method="post">
+          {% csrf_token %}
+          <div class="form-actions">
+            <button type="submit" class="delete-btn">Usuń</button>
+            <a href="{% url 'book_list' %}" class="cancel-btn">Anuluj</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

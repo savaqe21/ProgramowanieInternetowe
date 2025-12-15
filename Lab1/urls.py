@@ -8,4 +8,6 @@ urlpatterns = [
     path('visitcounter/', include('visitcounter.urls')),
     path('api/', include('todoapi.urls')),
     path('events/', include('eventplanner.urls')),
+    path('library/', include('bookhome.urls')),
+    path('apiv2/', include('productapi.urls')),
 ]

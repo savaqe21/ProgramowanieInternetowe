@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Klient API Produktów</title>
+    <link rel="stylesheet" href="{% static 'product_styles.css' %}" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Komunikacja Frontend-Backend</h1>
+      <p>
+        Użyj przycisku, aby asynchronicznie pobrać listę produktów z backendu
+        Django.
+      </p>
+
+      <button id="fetch-button" onclick="fetchProducts()">
+        Pobierz produkty
+      </button>
+
+      <div id="product-results">
+        <p class="placeholder">
+          Brak danych. Kliknij przycisk, aby załadować listę.
+        </p>
+      </div>
+    </div>
+    <script src="{% static 'product_script.js' %}"></script>
+  </body>
+</html>

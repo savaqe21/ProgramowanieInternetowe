@@ -18,6 +18,8 @@ INSTALLED_APPS = [
     'visitcounter',
     'todoapi',
     'eventplanner',
+    'bookhome',
+    'productapi',
 ]
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

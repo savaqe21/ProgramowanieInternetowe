@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Lista Książek - Biblioteka</title>
+    <link rel="stylesheet" href="{% static 'bookhome_styles.css' %}" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>📚 Zbiór Książek</h1>
+        <a href="{% url 'book_create' %}" id="add-btn">Dodaj Nową Książkę</a>
+      </header>
+
+      <form method="get" class="filter-form">
+        <input
+          type="text"
+          name="q"
+          placeholder="Filtruj po autorze lub tytule..."
+          value="{{ request.GET.q|default:'' }}"
+        />
+        <button type="submit">Szukaj</button>
+        {% if request.GET.q %}
+        <a href="{% url 'book_list' %}" class="clear-filter">Wyczyść filtr</a>
+        {% endif %}
+      </form>
+
+      {% if books %}
+      <table class="book-table">
+        <thead>
+          <tr>
+            <th>Tytuł</th>
+            <th>Autor</th>
+            <th>Data Wydania</th>
+            <th>Akcje</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for book in books %}
+          <tr>
+            <td data-label="Tytuł:">{{ book.title }}</td>
+            <td data-label="Autor:">{{ book.author }}</td>
+            <td data-label="Data Wydania:">
+              {{ book.publication_date|date:"Y-m-d" }}
+            </td>
+            <td data-label="Akcje:" class="actions">
+              <a href="{% url 'book_update' book.pk %}" class="action-edit"
+                >Edytuj</a
+              >
+              <a href="{% url 'book_delete' book.pk %}" class="action-delete"
+                >Usuń</a
+              >
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      {% else %}
+      <p class="no-results">
+        Brak książek w zbiorze. {% if request.GET.q %} Nie znaleziono pozycji
+        pasujących do filtra. {% else %} Dodaj pierwszą książkę! {% endif %}
+      </p>
+      {% endif %}
+    </div>
+  </body>
+</html>
