@@ -1,2 +1,2 @@
-# InternetRzeczy
-Projekty na esp8266
+# ProgramowanieInternetowe
+Projekty w Django
